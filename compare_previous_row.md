@@ -1,8 +1,8 @@
-#### Problem : 	compare each date price with previous date price and create the price_change column accordingly. 
+## Problem : 	compare each date price with previous date price and create the price_change column accordingly. 
 
 ![image](https://github.com/user-attachments/assets/fae6d47d-2aa8-4abe-8ec5-1ee268c07053)
 
-#### create table
+## create table
 ```sql
 create table stocks
 (
@@ -27,7 +27,7 @@ INSERT INTO stocks
 ('C', '2024-01-03', 3790.0);
 ```
 
-#### slotion using conventional way - using self join and 'DATEADD' function to compare previous row of same table. 
+## solution using conventional way - using self join and 'DATEADD' function to compare previous row of same table. 
 ```sql
 SELECT 
   A.stock_id, 
@@ -46,7 +46,7 @@ LEFT JOIN stocks B
 ORDER BY A.stock_id, A.date;
 ```
 
-#### using LAG windows function and subquery. (LAG for comparing previous row of same table without using self join)
+## using LAG windows function and subquery. (LAG for comparing previous row of same table without using self join)
 ```sql
 select stock_id,
         date,
@@ -66,7 +66,7 @@ FROM stocks)
 ```
 
 
-#### using LAG windows function and Common Table Expression.
+## using LAG windows function and Common Table Expression.
 ```sql
 SELECT
   stock_id,
