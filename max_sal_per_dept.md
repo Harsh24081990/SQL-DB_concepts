@@ -1,5 +1,6 @@
-Input: 
+##### Input: 
 Employee table:
+
 +----+-------+--------+--------------+
 | id | name  | salary | departmentId |
 +----+-------+--------+--------------+
@@ -9,14 +10,16 @@ Employee table:
 | 4  | Sam   | 60000  | 2            |
 | 5  | Max   | 90000  | 1            |
 +----+-------+--------+--------------+
-Department table:
+
+##### epartment table:
+
 +----+-------+
 | id | name  |
 +----+-------+
 | 1  | IT    |
 | 2  | Sales |
 +----+-------+
-Output: 
+##### Output: 
 +------------+----------+--------+
 | Department | Employee | Salary |
 +------------+----------+--------+
