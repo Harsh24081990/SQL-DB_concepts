@@ -11,7 +11,7 @@ Employee table:
 | 5  | Max   | 90000  | 1            |
 +----+-------+--------+--------------+
 
-##### epartment table:
+##### department table:
 
 +----+-------+
 | id | name  |
