@@ -68,6 +68,7 @@ FROM stocks)
 
 ## using LAG windows function and Common Table Expression.
 ```sql
+WITH CTE AS(
 SELECT
   stock_id,
   date,
