@@ -1,7 +1,7 @@
 ## Group by Vs Partition by
 - **`GROUP BY`**: Reduces the number of rows in the result set to one per group (one row per category). You cannot see individual sales amounts or any other details.
 - **`PARTITION BY`**: Retains all individual rows while adding aggregated values, allowing you to analyze the data in more detail alongside the calculated aggregates.
-Use `GROUP BY` when you need summarized results, such as finding maximum values per category, and use `PARTITION BY` when you want to maintain the detail of individual records while performing calculations on those records.
+- Use `GROUP BY` when you need summarized results, such as finding maximum values per category, and use `PARTITION BY` when you want to maintain the detail of individual records while performing calculations on those records.
 
 --------------------------------------------------
 One key use case for the `PARTITION BY` clause that cannot be achieved with `GROUP BY` is the calculation of **running totals** or **cumulative sums**. 
@@ -99,4 +99,109 @@ The result would look like this:
 ### Conclusion
 
 Calculating rankings or row numbers based on specific criteria within partitions of data is a strong use case for `PARTITION BY`. It provides insights into the relative standing of each record within its group, something that cannot be done with `GROUP BY` alone.
+
 ---------------------------------------------------------------------
+
+## what are the functions we can use with partition by clause in sql ? can we right sales_amount over() partitionby(prod_id orefer by sales_date) ?
+
+In SQL, `PARTITION BY` is used inside **window functions** (analytic functions).
+
+### Common functions with `PARTITION BY`
+
+* **Ranking functions**
+
+  * `ROW_NUMBER()`
+  * `RANK()`
+  * `DENSE_RANK()`
+  * `NTILE(n)`
+
+* **Aggregate functions as window functions**
+
+  * `SUM()`
+  * `AVG()`
+  * `COUNT()`
+  * `MIN()`
+  * `MAX()`
+
+* **Value functions**
+
+  * `FIRST_VALUE()`
+  * `LAST_VALUE()`
+  * `LAG()`
+  * `LEAD()`
+
+---
+
+## If you want the complete sum of products in each partition (not cumulative), just use SUM() with PARTITION BY but without ORDER BY. --> No cumulative effect because ORDER BY is not used.
+
+## If you want cumulative sum across all products (ignoring prod_id), you just remove PARTITION BY and keep only ORDER BY.
+
+-------
+
+Exactly 👍
+The **`OVER` clause** is not always tied to `PARTITION BY`.
+
+---
+
+### Ways to use `OVER`:
+
+#### 1. With `PARTITION BY`
+
+👉 Divide rows into groups.
+
+```sql
+SUM(sales_amount) OVER (PARTITION BY prod_id)
+```
+
+Gives **total per product**.
+
+---
+
+#### 2. With `ORDER BY`
+
+👉 Defines row order (needed for cumulative, ranking, lag/lead).
+
+```sql
+SUM(sales_amount) OVER (ORDER BY sales_date)
+```
+
+Gives **cumulative sum across all rows**.
+
+```sql
+ROW_NUMBER() OVER (ORDER BY sales_date)
+```
+
+Gives **row sequence number**.
+
+---
+
+#### 3. With both `PARTITION BY + ORDER BY`
+
+👉 Partition into groups, then order inside each.
+
+```sql
+SUM(sales_amount) OVER (PARTITION BY prod_id ORDER BY sales_date)
+```
+
+Gives **cumulative sum per product**.
+
+---
+
+#### 4. With empty `OVER()`
+
+👉 Means apply the function over the **entire result set** (no partition, no order).
+
+```sql
+SUM(sales_amount) OVER ()
+```
+
+Gives the **same total sum of all rows** repeated in each row.
+
+---
+
+✅ So `OVER` basically turns aggregate functions into **window functions**, where you can control scope (partition) and order.
+
+---
+
+Want me to make a **small table comparing the outputs of all 4 cases** (`OVER ()`, `OVER (PARTITION BY)`, `OVER (ORDER BY)`, `OVER (PARTITION BY + ORDER BY)`)?
+
