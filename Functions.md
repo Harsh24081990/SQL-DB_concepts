@@ -78,6 +78,8 @@ LAG(salary,1) OVER(ORDER BY hire_date) → prev salary
 LEAD(salary,1) OVER(ORDER BY hire_date) → next salary
 SUM(sales) OVER(PARTITION BY product ORDER BY date) → running total
 ```
+### Note: 
+you can use aggregate functions (SUM, AVG, MIN, MAX, COUNT) as a window function in Spark SQL.
 
 ---
 
