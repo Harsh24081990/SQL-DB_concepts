@@ -1,5 +1,5 @@
 
-# Topic covered:-
+# Topics covered:-
 
 ### Components of a DBMS:-
 - Catalog (System Catalog)
