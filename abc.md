@@ -11,7 +11,7 @@
 - Stored Procedures & Functions
 -------------------------------------------------------------------------------------------------
 
--------------------------------------------------------------------------------------------------
+
 # Catalog
 ### DB catalogs / System Catalogs / Data Dictionary / Metastore 
 
@@ -55,8 +55,8 @@
 
 -------------------------------------------------------------------------------------------------
 # Databases
-	- one or multiple named storage containers created inside a DBMS to store and organize related data.
-“Each database holds tables, views, and other objects that together represent a specific application or system’s data.”
+- one or multiple named storage containers created inside a DBMS to store and organize related data.
+- “Each database holds tables, views, and other objects that together represent a specific application or system’s data.”
 
 -------------------------------------------------------------------------------------------------
 
