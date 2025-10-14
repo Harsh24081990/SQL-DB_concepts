@@ -13,7 +13,6 @@
 
 -------------------------------------------------------------------------------------------------
 # Catalog
--------------------------------------------------------------------------------------------------
 ### DB catalogs / System Catalogs / Data Dictionary / Metastore 
 
 * These all are the terms used for a storage system where metadata information of the entire DB is stored. 
