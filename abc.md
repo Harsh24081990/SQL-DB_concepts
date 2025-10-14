@@ -1,7 +1,7 @@
 
 # Topic covered:-
--------------------------------------------------------------------------------------------------
-## Components of a DBMS:-
+
+### Components of a DBMS:-
 - Catalog (System Catalog)
 - Databases
 - Schema
@@ -14,7 +14,7 @@
 -------------------------------------------------------------------------------------------------
 # Catalog
 -------------------------------------------------------------------------------------------------
-## DB catalogs / System Catalogs / Data Dictionary / Metastore 
+### DB catalogs / System Catalogs / Data Dictionary / Metastore 
 
 * These all are the terms used for a storage system where metadata information of the entire DB is stored. 
 
@@ -28,7 +28,7 @@
 
 ------------------------------------------------------
 
-## Metadata views of various DBMS
+### Metadata views of various DBMS
 
 ### ORACLE:-
 - USER_TABLES, ALL_TABLES, DBA_TABLES
