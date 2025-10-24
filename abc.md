@@ -67,15 +67,73 @@ A schema is a logical container inside a database that groups related objects
 
 -------------------------------------------------------------------------------------------------
 # Tables
+- A table is the basic unit of data storage in a database where data is organized in a tabular form — rows and columns.
+- A table is a data storage object within a schema that holds information in rows and columns.
 
 -------------------------------------------------------------------------------------------------
 # Views
+• “A view is a virtual table that shows data from one or more tables using a SQL query.”
+• “A view doesn’t store data itself — it just displays data fetched from underlying tables.”
+Basically these are the pointers to the actual tables.
 
 -------------------------------------------------------------------------------------------------
 # Indexes
+• An index is a data structure that helps the database find rows faster, improving query performance.”
+• “An index works like a book index — it speeds up data retrieval without scanning the entire table.”
+• “An index is a performance optimization object that makes searches and lookups quicker in a table.”
+you can create an index on that column:
+CREATE INDEX emp_id_idx ON employees(employee_id);
+Now, when you run
+SELECT * FROM employees WHERE employee_id = 105;
 
 -------------------------------------------------------------------------------------------------
 # Stored Procedures & Functions
+**Stored Procedures:**
+A **stored procedure** is a **set of SQL statements saved in the database** that you can run anytime by calling its name.
+It’s used to perform tasks like insert, update, or calculations — all in one go.
+
+**Example (practical):**
+
+```sql
+CREATE PROCEDURE increase_salary()
+AS
+BEGIN
+  UPDATE employees SET salary = salary * 1.10;
+END;
+```
+
+Now you can just run:
+
+```sql
+EXEC increase_salary;
+```
+
+It will give a 10% raise to all employees.
+
+---
+
+**Functions:**
+A **function** is similar to a procedure, but it **returns a single value**.
+Used when you need a calculation or result in a query.
+
+**Example (practical):**
+
+```sql
+CREATE FUNCTION get_bonus(salary NUMBER)
+RETURN NUMBER
+AS
+BEGIN
+  RETURN salary * 0.10;
+END;
+```
+
+You can use it like:
+
+```sql
+SELECT name, get_bonus(salary) FROM employees;
+```
+
+It returns the 10% bonus for each employee.
 
 -------------------------------------------------------------------------------------------------
 
