@@ -1,5 +1,5 @@
 ## ORACLE Important metadata views:-
-- USER_TABLES, ALL_TABLES, DBA_TABLES
+- **USER_TABLES, ALL_TABLES, DBA_TABLES**
 - USER_TAB_COLUMNS, ALL_TAB_COLUMNS, DBA_TAB_COLUMNS
 - USER_PROCEDURES, USER_OBJECTS
 - USER_INDEXES, ALL_INDEXES, DBA_INDEXES
@@ -46,3 +46,17 @@ AND    owner = 'YOUR_SCHEMA_NAME'
 ORDER BY column_id;
 ```
 ------------------------
+Here’s the difference between **USER_TABLES**, **ALL_TABLES**, and **DBA_TABLES** in Oracle 👇
+
+---
+
+### ✅ **Quick Summary Table**
+
+| View          | Shows Tables From      | Privilege Needed          | Typical Use                                 |
+| ------------- | ---------------------- | ------------------------- | ------------------------------------------- |
+| `USER_TABLES` | Your own schema        | None                      | When working within your schema             |
+| `ALL_TABLES`  | All accessible schemas | None                      | When you need to see shared/external tables |
+| `DBA_TABLES`  | Entire database        | DBA / SELECT_CATALOG_ROLE | For DBA or admin-level inspection           |
+
+---
+
