@@ -55,7 +55,7 @@ Here’s the difference between **USER_TABLES**, **ALL_TABLES**, and **DBA_TABLE
 | View          | Shows Tables From      | Privilege Needed          | Typical Use                                 |
 | ------------- | ---------------------- | ------------------------- | ------------------------------------------- |
 | `USER_TABLES` | Your own schema        | None                      | When working within your schema             |
-| `ALL_TABLES`  | All accessible schemas | None                      | When you need to see shared/external tables |
+| `**ALL_TABLES**`  | All accessible schemas | None                      | When you need to see shared/external tables |
 | `DBA_TABLES`  | Entire database        | DBA / SELECT_CATALOG_ROLE | For DBA or admin-level inspection           |
 
 ---
