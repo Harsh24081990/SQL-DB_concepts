@@ -1,0 +1,58 @@
+--============ Create table:-
+CREATE TABLE xyz_employees 
+(
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(30) NOT NULL,
+    age INTEGER
+);
+
+--auto generate ID
+CREATE TABLE xyz_employees (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(30) NOT NULL,
+    age INT
+);
+
+--============  Modify / Alter table:-
+
+--**Add a Column:**
+ALTER TABLE xyz_employees ADD COLUMN email VARCHAR(50);
+
+
+--**Rename a Column:**
+ALTER TABLE xyz_employees RENAME COLUMN name TO full_name;
+
+
+--**Change Data Type:**
+ALTER TABLE xyz_employees ALTER COLUMN age TYPE SMALLINT;
+
+
+
+--============  Insert data in table:-
+INSERT INTO xyz_employees (id, name, age, email) VALUES
+(01, 'Sam', 32, 'sam@email.com'),
+(02, 'Bob', 45, 'bob@email.com'),
+(03, 'Anne', 23, 'anne@email.com')
+(04, 'Harsh', 32, 'Harsh@email.com')
+(05, 'Happy', 32, 'Happy@email.com')
+(06, 'Albert', 32, 'Samual@email.com')
+(07, 'Albert', 32, 'Samual@email.com');
+
+
+--============  Update data :-
+UPDATE xyz_employees
+SET age = 33
+WHERE name = 'Sam';
+
+
+--============  Delete data :-
+DELETE FROM xyz_employees
+WHERE name = 'Bob';
+
+
+--============  Truncate table :-
+TRUNCATE TABLE xyz_employees;
+
+
+--============  Drop table :-
+DROP TABLE xyz_employees;
