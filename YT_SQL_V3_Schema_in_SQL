@@ -1,0 +1,53 @@
+	SQL Session-3 
+	Components of RDBMS (Schema)
+
+=> Schema Meaning in different contexts:-
+
+	1. SQL 
+	Oracle db -- User name = schema
+	All other db -- A user can create multiple schema
+
+	2. Data Warehousing --> modeling of a data warehouse. Star , snowflake, galaxy schema etc. 
+
+	3. Spark / Databricks --> Structure of the data is know as schema. 
+
+# Schema (in sql)
+---------------------------------------------------------------------------------------------------------------------
+- Grouping of related or similar db objects under a common name. 
+
+- A schema is a logical folder inside a database that groups related objects, (like tables, views, and procedures) under a single name.
+
+- It helps organize data within a database, similar to folders inside a drive.
+
+
+
+
+# Why schema is created ?
+--------------------------------------------------------------------------------------------------------------------
+
+1. Logical Organization
+2. Access Control & Security
+3. Avoid Name Conflicts
+4. Easier Maintenance & Migration
+5. Separation of Environments
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+# Syntaxes for Schema
+---------------------------------------------------------------------------------------------------------------------
+
+==> CREATE SCHEMA <schema_name>;
+
+Example:-
+
+==> CREATE SCHEMA sch_sales;
+	
+# To delete the schema and all its objects:
+
+==> DROP SCHEMA sch_sales CASCADE;
+
+# If the schema is empty and you just want to remove it safely:
+
+==> DROP SCHEMA sch_sales;
