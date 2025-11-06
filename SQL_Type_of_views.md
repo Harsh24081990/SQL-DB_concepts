@@ -119,6 +119,8 @@ This makes report queries much faster.
 A **Temporary View** exists only for the **current session or connection**.
 Once you disconnect, it disappears automatically. It’s not stored permanently in the database.
 
+Mostly used in tools like Databricks, Spark, Hive.
+
 ### **Syntax to Create:**
 
 ```sql
@@ -158,6 +160,10 @@ It’s gone automatically after you close the session.
 
 A **Global Temporary View** is similar to a temporary view, but it can be accessed by **all sessions** in the same application.
 However, it still disappears once the **main (creator) session ends**.
+
+	• Used in Databricks or Spark environments.
+
+
 
 ### **Syntax to Create (Databricks/Spark SQL style):**
 
