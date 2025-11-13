@@ -32,6 +32,7 @@ V_POS :=1 (in Begin block before insert into statement. and V_POS :=2 at the end
 10. EXECUTE dbms_output.enable(2000000);
 11. prompt End of process: - what is meant by prompt , is it different than dbms.output.put_line ?
 12. AFTER SESSION ENABLE PARALLEL DML
+13. SPOOL
 ------------
 
 Here’s a short explanation for each:
@@ -153,3 +154,18 @@ in an Oracle script does the following:
 
 ----
 
+**13. `SPOOL`**
+
+- In Oracle (and general computing), SPOOL means to write output to a file instead of displaying it on screen.
+- The term comes from "Simultaneous Peripheral Operations On-Line", originally referring to temporarily storing data meant for devices like printers.
+- If using SPOOL, verything displayed on screen — like query results, DBMS_OUTPUT text, or error messages — is spooled (logged) into that file.
+- It keeps recording until you issue: **`SPOOL OFF`**
+
+----------
+
+**14. `@scriptname.sql`**
+- Execute the SQL script file named scriptname.sql.
+- The file can contain any valid SQL or PL/SQL statements (e.g., CREATE TABLE, INSERT, SELECT, etc.).
+- SQL*Plus reads and runs each command in that file sequentially.
+
+-----------------
