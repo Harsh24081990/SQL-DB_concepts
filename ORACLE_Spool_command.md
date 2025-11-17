@@ -8,7 +8,7 @@ SPOOL /file/path/filename.txt
 <sql commands here>;
 
 SPOOL OFF
-
+```
 ---
 
 # ✔ **If you use these settings before SPOOL command in your sql script:**
