@@ -8,15 +8,19 @@
 
 - MS SQL server → Multiple catalogs. Each database has its own catalog.
 
-- Spark SQL → Single metastore (**hive metastore**) per server/workspace, which covers all the databases. Everything is stored inside one single metastore. No catalogs layer.
+- Spark SQL → Single metastore (**hive metastore**) per server/workspace, which covers all the databases. Everything is stored inside one single metastore. No catalogs layer. only default system catalog is there named as `"SYSTEM"`. (You can define multiple catalogs, but only through configuration, not through SQL CREATE CATALOG.)
 
 - Databricks -> Single Metastore (**Unity Catalog Metastore**) -- Inside one metastore you can have multiple catalogs.
 Metastore (single per region)
-   └── Catalogs (multiple)
-         └── Schemas
-               └── Tables
+   └── Catalogs (multiple) └── Schemas └── Tables
+  You can create as many catalogs as you want: CREATE CATALOG finance; CREATE CATALOG sales; CREATE CATALOG marketing;
+  In Databricks, `system` is also a default catalog — same as in Spark.
+  
 ----
-## Note : Generally in case of databases we use the term "DB CATALOGS" and in case of standalone spark we use the term "METASTORE" and in case of databricks we use the both the words METASTORE (UC) and CATALOG as well. 
+#### Note : 
+- In case of databases we use the term "**DB CATALOGS**"
+- In case of standalone spark we use the term "**METASTORE**"
+- In case of databricks we use the both the words **METASTORE (UC)** and **CATALOG** as well. 
 ----
 
 # Metadata views of various DBMS
@@ -39,7 +43,7 @@ Metastore (single per region)
 - INFORMATION_SCHEMA.COLUMNS
 - INFORMATION_SCHEMA.ROUTINES
  
-## Spark SQL:-
+## Spark/databricks SQL:-
 - system.information_schema.tables
 - system.information_schema.columns
 - system.information_schema.routines
