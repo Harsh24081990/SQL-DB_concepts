@@ -4,15 +4,20 @@
 
 - Oracle → Single catalog (Data Dictionary) which covers all the schemas (users). 
 
-- Spark SQL → Single catalog (metastore) per server/workspace, which covers all the databases.
-
 - PostgreS → Multiple catalogs. Each database has its own catalog. 
 
-- MS SQL server → Multiple catalogs. Each database has its own catalog. 
+- MS SQL server → Multiple catalogs. Each database has its own catalog.
 
+- Spark SQL → Single metastore (**hive metastore**) per server/workspace, which covers all the databases. Everything is stored inside one single metastore. No catalogs layer.
 
-
-
+- Databricks -> Single Metastore (**Unity Catalog Metastore**) -- Inside one metastore you can have multiple catalogs.
+Metastore (single per region)
+   └── Catalogs (multiple)
+         └── Schemas
+               └── Tables
+----
+## Note : Generally in case of databases we use the term "DB CATALOGS" and in case of standalone spark we use the term "METASTORE" and in case of databricks we use the both the words METASTORE (UC) and CATALOG as well. 
+----
 
 # Metadata views of various DBMS
 
