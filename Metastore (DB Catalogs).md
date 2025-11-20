@@ -2,15 +2,16 @@
 
 * These all are the terms used for a storage system where metadata information of the entire DB is stored. 
 
-- Oracle → Single catalog (Data Dictionary) which covers all the schemas (users). 
+- **Oracle** → Single catalog (Data Dictionary) which covers all the schemas (users). 
 
-- PostgreS → Multiple catalogs. Each database has its own catalog. 
+- **PostgreS** → Multiple catalogs. Each database has its own catalog. 
 
-- MS SQL server → Multiple catalogs. Each database has its own catalog.
+- **MS SQL server** → Multiple catalogs. Each database has its own catalog.
 
-- Spark SQL → Single metastore (**hive metastore**) per server/workspace, which covers all the databases. Everything is stored inside one single metastore. No catalogs layer. only default system catalog is there named as `"SYSTEM"`. (You can define multiple catalogs, but only through configuration, not through SQL CREATE CATALOG.)
+- **Spark SQL** → Single metastore (**hive metastore**) per server/workspace, which covers all the databases. Everything is stored inside one single metastore. No catalogs layer. only default system catalog is there named as `"SYSTEM"`. (You can define multiple catalogs, but only through configuration, not through SQL CREATE CATALOG.)
+  Spark has support for multi-catalog via plugin catalogs. Examples: Iceberg catalog, Delta catalog, JDBC catalog or Custom catalogs via `spark.sql.catalog.<name>.type` BUT these are external catalogs and These catalogs are NOT backed by the Hive Metastore.
 
-- Databricks -> Single Metastore (**Unity Catalog Metastore**) -- Inside one metastore you can have multiple catalogs.
+- **Databricks** -> Single Metastore (**Unity Catalog Metastore**) -- Inside one metastore you can have multiple catalogs.
 Metastore (single per region)
    └── Catalogs (multiple) └── Schemas └── Tables
   You can create as many catalogs as you want: CREATE CATALOG finance; CREATE CATALOG sales; CREATE CATALOG marketing;
